@@ -17,7 +17,10 @@ const Appointment = () => {
   const [docSlots, setDocSlots] = useState([]);
   const [slotIndex, setSlotIndex] = useState(0);
   const [slotTime, setSlotTime] = useState('');
-  const fetchDocInfo = async () => {
+  const [currentTime, setCurrentTime] = useState('')
+
+
+    const fetchDocInfo = async () => {
     const docInfo = doctors.find(doc => doc._id === docId);
     setDocInfo(docInfo);
     console.log(docInfo)
@@ -66,8 +69,20 @@ const Appointment = () => {
   },[docInfo])
 
   useEffect(() => {
-    console.log(docSlots)
+    // console.log(docSlots)
   },[docSlots])
+
+  {/* ------- Show to present time ---------- */} 
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      const formattedTime = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+      setCurrentTime(formattedTime);
+    }
+    updateTime();
+      const interval = setInterval(updateTime, 1000);
+      return () => clearInterval(interval);
+  },[])
 
   return docInfo && (
     <div>
@@ -105,8 +120,12 @@ const Appointment = () => {
 
         {/* ------- Booking Slots ---------- */}
 
-        <div className="sm:ml-72 sm:pl-4 mt-4 font-medium">
+        <div className="sm:ml-72 sm:pl-4 mt-10 font-medium">
+          <div className="flex justify-between items-center">
+          <p className="">Present Time: <span className="myStyle px-4 py-2">{currentTime}</span></p>
           <p>Booking your slots</p>
+          
+          </div>
           <div className="flex gap-4 items-center w-full overflow-x-scroll mt-4">
             {
               docSlots.length && docSlots.map((item,index)=> (
@@ -137,7 +156,11 @@ const Appointment = () => {
                 ))
               }
             </div>
-
+              <div>
+                <button className="bg-primary text-sm px-10 py-4 rounded-full mt-5">
+                  Booking Now
+                </button>
+              </div>
 
         </div>
 
