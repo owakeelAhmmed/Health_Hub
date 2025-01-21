@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import { AppContext } from "../context/AppContext";
 import { assets } from "../assets/assets";
+import RelatedDoctor from "../components/RelatedDoctor";
 
 
 const Appointment = () => {
@@ -163,7 +164,7 @@ const Appointment = () => {
               </div>
 
         </div>
-
+              <RelatedDoctor docId={docId} speciality={docInfo.speciality}/>
 
     </div>
   )
