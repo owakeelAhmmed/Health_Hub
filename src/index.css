@@ -32,16 +32,17 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.button_style{
-background: rgba(126, 80, 80, 0.2);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(93, 92, 92, 0.1);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgba(255, 255, 255, 0.603);
+.button_style {
+  cursor: pointer;
+  background: rgba(126, 80, 80, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(93, 92, 92, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.603);
 }
 
-.cursor_pointer{
+.cursor_pointer {
   cursor: pointer;
 }
 
