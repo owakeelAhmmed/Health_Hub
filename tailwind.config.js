@@ -12,6 +12,7 @@ export default {
       gray: "#ecf0f1",
       black: "#000000",
       green: "#2ecc71",
+      red: "#e74c3c",
     },
     gridTemplateColumns: {
       "auto": "repeat(auto-fill, minmax(200px, 1fr))",
